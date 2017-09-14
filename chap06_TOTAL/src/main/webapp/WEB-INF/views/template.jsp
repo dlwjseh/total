@@ -9,7 +9,7 @@
 <body>
 	<header><t:insertAttribute name="header"/></header>
 	<nav><t:insertAttribute name="nav"/></nav>
-	<section style="min-height: 70%"><t:insertAttribute name="section"/></section>
+	<section style="min-height: 75%"><t:insertAttribute name="section"/></section>
 	<footer><t:insertAttribute name="footer"/></footer>
 </body>
 </html>
