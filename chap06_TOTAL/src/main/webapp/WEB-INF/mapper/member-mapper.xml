@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<select id="checkId" resultType="java.lang.Integer">
+		select count(*) from member where id=#{idmail}
+	</select>
+	<select id="checkEmail" resultType="java.lang.Integer">
+		select count(*) from member where email=#{idmail}
+	</select>
+	<insert id="addMember">
+		insert into member(id, pass, email) values(#{id}, #{pass}, #{email})
+	</insert>
+	<insert id="addDetail">
+		insert into detail(id) values(#{id})
+	</insert>
+</mapper>

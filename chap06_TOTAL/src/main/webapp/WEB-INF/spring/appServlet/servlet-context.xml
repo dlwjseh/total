@@ -14,7 +14,7 @@
 	
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
-	<context:component-scan base-package="org.itbank.app" />
+	<context:component-scan base-package="org.jdcomp.app" />
 	
 	<!-- datasource -->
 	<bean class="com.mchange.v2.c3p0.ComboPooledDataSource" id="ds">
@@ -28,11 +28,13 @@
 		<property name="dataSource" ref="ds"/>
 		<property name="mapperLocations">
 			<list>
-			
+				<value>/WEB-INF/mapper/member-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
-	
+	<bean class="org.mybatis.spring.SqlSessionTemplate">	
+		<constructor-arg name="sqlSessionFactory" ref="factory"/>
+	</bean>
 	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
 		<property name="dataSource" ref="ds"/>
 	</bean>
@@ -43,8 +45,7 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="9"/>
@@ -55,7 +56,7 @@
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
-			
+				<value>/WEB-INF/tiles/tiles-config.xml</value>
 			</list>
 		</property>
 	</bean>
