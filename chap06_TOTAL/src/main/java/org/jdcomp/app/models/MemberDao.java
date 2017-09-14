@@ -22,4 +22,11 @@ public class MemberDao {
 		sql.insert("member.addDetail", map);
 		return true;
 	}
+	public int checklogin(Map map) {
+		return sql.selectOne("member.checkLogin", map);
+	}
+	public Map getInfo(Map map) {
+		return sql.selectOne("member.getInfo", map);
+	}
+	
 }

@@ -16,4 +16,8 @@
 		<put-attribute name="title" value="HOME - HUB"/>
 		<put-attribute name="section" value="/WEB-INF/views/home.jsp"/>
 	</definition>
+	<definition name="t_login" extends="t_base">
+		<put-attribute name="title" value="LOGIN - HUB"/>
+		<put-attribute name="section" value="/WEB-INF/views/login.jsp"/>
+	</definition>
 </tiles-definitions>

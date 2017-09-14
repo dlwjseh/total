@@ -13,4 +13,10 @@
 	<insert id="addDetail">
 		insert into detail(id) values(#{id})
 	</insert>
+	<select id="checkLogin" resultType="java.lang.Integer">
+		select count(*) from member where (id=#{idmail} or email=#{idmail}) and pass=#{pass}
+	</select>
+	<select id="getInfo" resultType="java.util.HashMap">
+		select m.*,d.name,d.gender,d.birth,d.address from member m left join detail d on m.id=d.id where m.id=#{idmail}
+	</select>
 </mapper>
